@@ -1,0 +1,160 @@
+<div class="container h-100">
+  <div class="row h-100 justify-content-center align-items-center">
+    <h1>Welcome to Game Challenge Season-I</h1>
+  </div>
+</div>
+
+
+<div class=" h-100">
+  <div class="row h-100 justify-content-center align-items-center">
+    <!-- <div *ngFor='let d of data'>
+      {{d.title}} <br>
+    </div> -->
+    <!-- <div class="cards col-xs-12 col-sm-12 col-md-3 col-xl-3" [@rightleftAnimate]='state' (mouseenter)="animateMe2()">
+      <div class='show1'></div>
+      <div class='description1'>
+        <div class='title'>My Title</div>
+        <div class='platform'>Platform</div>
+        <div class='score'>Score</div>
+        <div class='genre'>Genre</div>
+        <div class='editors_choice'>Editor Choice</div>
+      </div>
+      <div class='action1'>
+        <button class='btn'>Play Game</button>
+      </div>
+    </div>
+
+    <div class="cards col-xs-12 col-sm-12 col-md-3 col-xl-3" [@rightleftAnimate]='state' (mouseenter)="animateMe2()">
+      <div class='show1'></div>
+      <div class='description1'>
+        <div class='title'>My Title</div>
+        <div class='platform'>Platform</div>
+        <div class='score'>Score</div>
+        <div class='genre'>Genre</div>
+        <div class='editors_choice'>Editor Choice</div>
+      </div>
+      <div class='action1'>
+        <button class='btn'>Play Game</button>
+      </div>
+    </div>
+
+    <div class="cards col-xs-12 col-sm-12 col-md-3 col-xl-3" [@rightleftAnimate]='state' (mouseenter)="animateMe2()">
+      <div class='show1'></div>
+      <div class='description1'>
+        <div class='title'>My Title</div>
+        <div class='platform'>Platform</div>
+        <div class='score'>Score</div>
+        <div class='genre'>Genre</div>
+        <div class='editors_choice'>Editor Choice</div>
+      </div>
+      <div class='action1'>
+        <button class='btn'>Play Game</button>
+      </div>
+    </div>
+
+    <div class="cards col-xs-12 col-sm-12 col-md-3 col-xl-3" [@rightleftAnimate]='state' (mouseenter)="animateMe2()">
+      <div class='show1'></div>
+      <div class='description1'>
+        <div class='title'>My Title</div>
+        <div class='platform'>Platform</div>
+        <div class='score'>Score</div>
+        <div class='genre'>Genre</div>
+        <div class='editors_choice'>Editor Choice</div>
+      </div>
+      <div class='action1'>
+        <button class='btn'>Play Game</button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 col-xs-12 col-md-4 col-xl-4">
+        <div class="card">
+          <div class="card-block">
+            <h3 class="card-title">Special title treatment</h3>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-xs-12 col-md-4 col-xl-4">
+        <div class="card">
+          <div class="card-block">
+            <h3 class="card-title">Special title treatment</h3>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- <div  *ngFor='let d of data; let i=index'>
+      <div *ngIf='i>0' class="card col-xs-12 col-sm-12 col-md-4 col-xl-4" >
+        <div class='show1'></div>
+        <div class='description1'>
+          <div class='title'>{{d.title}}</div>
+          <div class='platform'>{{d.platform}}</div>
+          <div class='score'>{{d.score}}</div>
+          <div class='genre'>{{d.genre}}</div>
+          <div class='editors_choice'>{{d.editors_choice}}</div>
+        </div>
+        <div class='action1'>
+          <button class='btn'>Play Game</button>
+        </div>
+      </div>
+    </div> -->
+
+    <div class="container test-cards">
+      <h1 style="font-size:20px; margin-top:15px;">Few Playing Games :
+        <a routerLink='/test/practice-test'>
+          <button class="btn btn-primary btn-small">View All
+            <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+          </button>
+        </a>
+      </h1>
+      <div class="row">
+        <div style="position:absolute; width:80%; height:100%; overflow:hidden;">
+          <!-- <app-loadingbar [status]="loadingbarChild"></app-loadingbar> -->
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-xl-3" style="margin-top:25px;" *ngFor="let d of data; let i=index">
+          <!-- start -->
+          <div class="post-module">
+            <div class="thumbnail">
+              <div class="date">
+                <div class="day">
+                  <div *ngIf="!d?.test_test">
+                     {{d?.score}}
+                  </div>
+                 </div>
+              </div>
+              <img src="/assets/gameimages/c400x400.jpg" />
+            </div>
+            <div class="post-content">
+              <!-- <div class="category">Avaliable</div> -->
+              <h1 class="title">{{d?.title}}</h1>
+              <div class="details">
+                <p class='platform'>{{d?.platform}}</p>
+                <p class='score'>{{d?.score}}</p>
+                <p class='genre'>{{d?.genre}}</p>
+                <p class='editors_choice'>{{d?.editors_choice}}</p>
+              </div>
+
+              <div class="post-meta">
+                <a routerLink='/test/{{d?.c_url}}/{{d?.s_url}}/{{d?.testurl}}'>
+                  <button class="btn btn-success button1">Play Game
+                    <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- End -->
+        </div>
+
+      </div>
+    </div>
+
+
+
+
+  </div>
+</div>

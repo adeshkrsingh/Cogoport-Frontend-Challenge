@@ -1,0 +1,22 @@
+@import url(https://fonts.googleapis.com/css?family=Fredoka+One);
+
+
+.navbar {
+  background-color: orangered;
+  border-bottom: 1px solid whitesmoke;
+}
+
+@media only screen and (max-width: 500px) {
+  li, ul, a, button {
+    color: azure;
+    font-family: 'Fredoka One', cursive;
+  }
+}
+
+@media only screen and (min-width: 500px) {
+  li, ul, a, button {
+    color: azure;
+    font-family: 'Fredoka One', cursive;
+    margin-left: 25px;
+  }
+}

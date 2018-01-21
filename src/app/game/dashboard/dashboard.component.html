@@ -1,0 +1,63 @@
+<div class=" h-100">
+  <div class="row h-100 justify-content-center align-items-center">
+
+    <div class="container test-cards">
+        <div>
+          <form #myForm="ngForm" (ngSubmit)="submitform(myForm)">
+            <div class="form-group">
+              <label for="search">search</label>
+              <input type="text" (keyup)="submitform(myForm)" required class="form-control" id="search" ngModel name="search" placeholder="Enter the text to search">
+            </div>
+            <div class="form-group">
+              <button class='btn btn-outline-light'>
+                <i class="fa fa-sign-in" aria-hidden="true"></i> Search </button>
+            </div>
+          </form>
+        </div>
+      <div class="row">
+        <div style="position:absolute; width:80%; height:100%; overflow:hidden;">
+          <!-- <app-loadingbar [status]="loadingbarChild"></app-loadingbar> -->
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-xl-3" style="margin-top:25px;" *ngFor="let d of data; let i=index">
+          <!-- start -->
+          <div class="post-module">
+            <div class="thumbnail">
+              <div class="date">
+                <div class="day">
+                  <div *ngIf="!d?.test_test">
+                    {{d?.score}}
+                  </div>
+                </div>
+              </div>
+              <img src="/assets/gameimages/c400x400.jpg" />
+            </div>
+            <div class="post-content">
+              <!-- <div class="category">Avaliable</div> -->
+              <h1 class="title">{{d?.title}}</h1>
+              <div class="details">
+                <p class='platform'>{{d?.platform}}</p>
+                <p class='score'>{{d?.score}}</p>
+                <p class='genre'>{{d?.genre}}</p>
+                <p class='editors_choice'>{{d?.editors_choice}}</p>
+              </div>
+
+              <div class="post-meta">
+                <a routerLink='/test/{{d?.c_url}}/{{d?.s_url}}/{{d?.testurl}}'>
+                  <button class="btn btn-success button1">Play Game
+                    <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- End -->
+        </div>
+
+      </div>
+    </div>
+
+
+
+
+  </div>
+</div>

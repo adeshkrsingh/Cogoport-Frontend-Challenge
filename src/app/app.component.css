@@ -1,0 +1,20 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab);
+
+body {
+  min-height: 100%;
+  min-width: 100vh;
+  background-color: orangered;
+  z-index: -10;
+}
+
+.mycontent {
+  z-index: 0;
+  position: relative;
+}
+
+
+.pgcontent {
+  min-height: 80vh;
+  margin: 10px;
+  font-family: 'Roboto Slab', serif;
+}

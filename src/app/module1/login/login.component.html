@@ -1,0 +1,34 @@
+<!-- <p  [@myAwesomeAnimation]='state' (click)="animateMe()">
+  login works!
+</p> -->
+<!-- <app-loader></app-loader> -->
+<div class="container h-100">
+  <div class="row h-100 justify-content-center align-items-center">
+    <div class="login-form" [@rightleftAnimate]='state2' (mouseenter)="animateMe2()" >
+      <form  #myForm="ngForm" (ngSubmit)="submitform(myForm)">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="text" required class="form-control" id="email" ngModel name="email" placeholder="Valid Email">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="text" required class="form-control" id="password" ngModel name="password" placeholder="6 Digit Password">
+        </div>
+        <div class="form-group">
+          <button class='btn btn-outline-light'><i class="fa fa-sign-in" aria-hidden="true"></i>  Login </button>
+        </div>
+      </form>
+    </div>
+    <pre>{{myForm.value | json}}</pre>
+  </div>
+</div>
+
+
+<div class="container">
+  <p>Show all users</p>
+  <ul>
+    <li *ngFor="let user of users | async">
+      {{ user | json }}
+    </li>
+  </ul>
+</div>
