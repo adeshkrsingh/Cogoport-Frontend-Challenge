@@ -132,3 +132,15 @@ p {
   text-align: center;
 }
 
+
+
+
+
+
+
+
+.seggestion p {
+  /* line-height: 1px; */
+  border-bottom: 1px solid rgb(161, 146, 146);
+  font-size: 14px;
+}
