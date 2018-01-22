@@ -1,4 +1,9 @@
-<div class="container h-100">
+<div *ngIf="showLoader">
+  <app-loader></app-loader>
+</div>
+
+
+<div class="container h-100" *ngIf="!showLoader">
   <div class="row h-100 justify-content-center align-items-center">
     <div class="login-form">
       <form #myForm="ngForm" (ngSubmit)="submitform(myForm)">

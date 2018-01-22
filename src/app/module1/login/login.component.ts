@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database-deprecated';
 
 
 @Component({
@@ -38,20 +36,23 @@ import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable }
       )),
     ])
   ],
-  providers: [AngularFireDatabase]
 })
 
 export class LoginComponent implements OnInit {
   state: String;
   state2: String;
-  items: FirebaseListObservable<any[]>;
-  constructor(db: AngularFireDatabase) {
-    this.items = db.list('/users');
+  showLoader: boolean;
+
+  constructor() {
    }
 
   ngOnInit() {
     this.state = 'small';
     this.state2 = 'state1';
+    this.showLoader = true;
+    setTimeout(() => {
+      this.showLoader = false;
+    }, 2500);
   }
 
   animateMe() {
@@ -61,22 +62,13 @@ export class LoginComponent implements OnInit {
     this.state2 = (this.state2 === 'state1' ? 'state2' : 'state1');
   }
 
-  // itemValue = 'hello';
-  // items: FirebaseListObservable<any[]>;
-
-  // constructor(db: AngularFireDatabase) {
-  //   this.items = db.list('/items');
-  //   this.items.push({ content: this.itemValue });
-  // }
 
   onSubmit(content: any) {
-    this.items.push({ content: content });
-    // this.itemValue = '';
+
   }
 
   submitform(myform) {
     console.log(myform.value);
     this.onSubmit( myform.value );
-    // this.database.saveFirebase('users', { email: myform.value.email, password: myform.value.password });
   }
 }

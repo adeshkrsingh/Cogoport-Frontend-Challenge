@@ -42,3 +42,7 @@
 .search-val>div>p:hover {
   color: #f52121;
 }
+
+.navbar-toggler {
+  color: white;
+}

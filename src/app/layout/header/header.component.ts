@@ -12,10 +12,12 @@ export class HeaderComponent implements OnInit {
   mySubscription: any;
   searchData = [];
   loadedData: any;
+  toggleMenu: boolean;
 
   constructor(private http: Http) { }
 
   ngOnInit() {
+    this.toggleMenu = false;
     this.mySubscription = this.http.get('../../../assets/mydata.json').map(res => res.json()).subscribe(data => {
       this.loadedData = data;
     });
@@ -50,6 +52,16 @@ export class HeaderComponent implements OnInit {
   // onWindowScroll() {
   //   alert('scrolled');
   // }
+
+  mobileResponsiveNavBar(event: MouseEvent, tMenu: any) {
+    if (this.toggleMenu === false) {
+      tMenu.setAttribute('class', 'expand navbar-collapse');
+      this.toggleMenu = true;
+    } else {
+      tMenu.setAttribute('class', 'collapse navbar-collapse');
+      this.toggleMenu = false;
+    }
+  }
 
   @HostListener('document:click', [])
   onDocumentClicked() {

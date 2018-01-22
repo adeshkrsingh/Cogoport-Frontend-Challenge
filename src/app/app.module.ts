@@ -2,14 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
-import { ChartsModule } from 'ng2-charts';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
-import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -20,6 +16,7 @@ import { ValemitterService } from './service/valemitter.service';
 import { HomepageComponent } from './homepage/homepage.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { SharedModule } from './shared/shared.module';
+import { ChartModule } from 'angular-highcharts';
 
 @NgModule({
   declarations: [
@@ -32,9 +29,7 @@ import { SharedModule } from './shared/shared.module';
   imports: [
   BrowserModule,
     AppRoutingModule,
-    ChartsModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule,
+    ChartModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
@@ -42,7 +37,6 @@ import { SharedModule } from './shared/shared.module';
     SharedModule
   ],
   providers: [
-    AngularFireDatabase,
     DatabaseService,
     ApiconnectionService,
     UserdataService,

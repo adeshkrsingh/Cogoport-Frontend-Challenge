@@ -1,8 +1,8 @@
-<!-- <p  [@myAwesomeAnimation]='state' (click)="animateMe()">
-  login works!
-</p> -->
-<!-- <app-loader></app-loader> -->
-<div class="container h-100">
+<div *ngIf="showLoader">
+  <app-loader></app-loader>
+</div>
+
+<div class="container h-100" *ngIf="!showLoader">
   <div class="row h-100 justify-content-center align-items-center">
     <div class="login-form" [@rightleftAnimate]='state2' (mouseenter)="animateMe2()" >
       <form  #myForm="ngForm" (ngSubmit)="submitform(myForm)">
@@ -21,7 +21,5 @@
     </div>
   </div>
 </div>
-<div class="container justify-center allign-items-center">
-  <pre>{{myForm.value | json}}</pre>
-</div>
+
 

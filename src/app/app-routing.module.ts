@@ -21,12 +21,8 @@ const routes: Routes = [
     path: 'p1',
     loadChildren: './shared/shared.module#SharedModule',
   },
-  // {
-  //   path: 'm2',
-  //   component: AppComponent,
-  // },
   {
-    path: '**',  // it will generate courses avaliable
+    path: '**',
     component: PagenotfoundComponent,
   }
 ];

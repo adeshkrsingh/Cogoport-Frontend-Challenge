@@ -7,13 +7,15 @@ import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule } from '@angular/forms';
+import { ChartModule } from 'angular-highcharts';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     Module1RoutingModule,
-    SharedModule
+    SharedModule,
+    ChartModule
   ],
   declarations: [LoginComponent, RegisterComponent, DashboardComponent]
 })

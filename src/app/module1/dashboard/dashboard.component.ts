@@ -1,63 +1,49 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database-deprecated';
-import 'rxjs/add/operator/first';
 
+import 'rxjs/add/operator/first';
+import { Chart } from 'angular-highcharts';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css'],
-  providers: [AngularFireDatabase]
 })
 export class DashboardComponent implements OnInit {
-  todos$: FirebaseListObservable<any[]>;
+  showLoader: boolean;
 
-  constructor(private af: AngularFireDatabase) { }
+
+  chart = new Chart({
+    chart: {
+      type: 'line'
+    },
+    title: {
+      text: 'Users Distribution'
+    },
+    series: [{
+      name: 'days',
+      data: [75, 120, 30, 40, 150, 140, 176, 141, 97]
+    }]
+  });
+
+  chart2 = new Chart({
+    chart: {
+      type: 'spline'
+    },
+    title: {
+      text: 'Users Distribution'
+    },
+    series: [{
+      name: 'days',
+      data: [75, 120, 30, 40, 150, 140, 176, 141, 97]
+    }]
+  });
+
+  constructor() { }
 
   ngOnInit() {
-    // this.todos$ = this.af.list('/todos', {
-    //   query: {
-    //     limitToFirst: 3,
-
-    //   }
-    // });
-    // this.addTodo('f1');
-    // this.addTodo('fff5f5');
-    // this.addTodo('vvdv');
-    // this.addTodo('d');
-    // this.addTodo('dvdvdvsd');
-    // this.deleteTodo('f1');
-    // this.getvalues();
+    this.showLoader = true;
+    setTimeout(() => {
+      this.showLoader = false;
+    }, 2000);
   }
-
-  // addTodo(value: string): void {
-  //   this.todos$.push({ content: value, done: false });
-  // }
-  // deleteTodo(todo: any): void {
-  //   this.af.object('/todos/' + todo.$key).remove();
-  // }
-
-  // toggleDone(todo: any): void {
-  //   this.af.object('/todos/' + todo.$key)
-  //     .update({ content: todo.content, done: !todo.done });
-  // }
-  // getvalues(): void {
-  //   const v = this.af.list('/users/email', {
-  //     query: {
-  //       orderByChild: 'email',
-  //       equalTo: true
-  //     }
-  //   }).first();
-  //   console.log('v', v );
-
-  // }
-
-  // updateTodo(todo: any, newValue: string): void {
-  //   // ...
-  // }
-  // updateTodo2(todo: any, newValue: string): void {
-  //   this.af.object('/todos/' + todo.$key)
-  //     .update({ content: newValue, done: todo.done });
-  // }
 
 }
