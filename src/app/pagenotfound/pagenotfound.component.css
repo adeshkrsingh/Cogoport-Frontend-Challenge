@@ -1,0 +1,14 @@
+.not-found {
+  text-align: center
+}
+.block1 {
+  width: 100%;
+  padding-left: 40vw;
+  height: auto;
+  text-align: center
+}
+.robot {
+  width: 20vw;
+  height: 20vw;
+  color: rgb(244, 255, 96);
+}

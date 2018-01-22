@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg ">
-  <a class="navbar-brand" routerLink="">Navbar</a>
+  <a class="navbar-brand" routerLink=""><img class="image" src="/assets/gameimages/apple.png" alt="Navbar Logo"> </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="navbarSupportedContent" aria-controls="navbarSupportedContent"
     aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -13,22 +13,27 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink=""><i class="fa fa-link" aria-hidden="true"></i> Link-1</a>
-      </li>
-      <li class="nav-item">
         <a class="nav-link" routerLink=""><i class="fa fa-file-text-o" aria-hidden="true"></i> Pages</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/game"><i class="fa fa-sign-in" aria-hidden="true"></i> Games</a>
+        <a class="nav-link" routerLink="/game"><i class="fa fa-gamepad" aria-hidden="true"></i> Games</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink=""><i class="fa fa-users" aria-hidden="true"></i> Register</a>
+        <a class="nav-link" routerLink="/user/login"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/user/register"><i class="fa fa-users" aria-hidden="true"></i> Register</a>
       </li>
 
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <form class="form-inline my-2 my-lg-0" #myForm="ngForm">
+      <input class="form-control mr-sm-2" (keyup)="searchform(search)" type="search" #search ngModel name="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-light my-2 my-sm-0" type="submit"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
+      <div class="search-val">
+        <div *ngFor="let ser of searchData;  let j=index">
+          <p (click)='mydataSelect(search, j)'>{{ser | slice:0:25}}</p>
+        </div>
+      </div>
     </form>
   </div>
 </nav>

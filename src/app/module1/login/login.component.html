@@ -19,16 +19,9 @@
         </div>
       </form>
     </div>
-    <pre>{{myForm.value | json}}</pre>
   </div>
 </div>
-
-
-<div class="container">
-  <p>Show all users</p>
-  <ul>
-    <li *ngFor="let user of users | async">
-      {{ user | json }}
-    </li>
-  </ul>
+<div class="container justify-center allign-items-center">
+  <pre>{{myForm.value | json}}</pre>
 </div>
+

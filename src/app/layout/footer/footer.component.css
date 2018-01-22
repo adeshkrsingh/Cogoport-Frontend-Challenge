@@ -1,7 +1,8 @@
-* {
+.footer {
   margin-bottom: 0px;
   position: relative;
   text-align: center;
+  height: 30px;
 }
 hr {
   background-color: azure;

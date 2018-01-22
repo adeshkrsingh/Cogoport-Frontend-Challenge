@@ -138,6 +138,24 @@ p {
 
 
 
+.search-val{
+  /* min-width: 215px; */
+  width: 90%;
+  z-index: 20;
+  position: absolute;
+  background-color: antiquewhite;
+}
+
+.search-val>div>p {
+  padding-left: 5px;
+}
+
+.search-val>div>p:hover {
+  color: #f52121;
+}
+
+
+
 
 .seggestion p {
   /* line-height: 1px; */

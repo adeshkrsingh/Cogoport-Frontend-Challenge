@@ -18,16 +18,19 @@ import { ApiconnectionService } from './service/apiconnection.service';
 import { UserdataService } from './service/userdata.service';
 import { ValemitterService } from './service/valemitter.service';
 import { HomepageComponent } from './homepage/homepage.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    HomepageComponent
+    HomepageComponent,
+    PagenotfoundComponent
   ],
   imports: [
-    BrowserModule,
+  BrowserModule,
     AppRoutingModule,
     ChartsModule,
     AngularFireModule.initializeApp(environment.firebase),
@@ -36,6 +39,7 @@ import { HomepageComponent } from './homepage/homepage.component';
     ReactiveFormsModule,
     FormsModule,
     HttpModule,
+    SharedModule
   ],
   providers: [
     AngularFireDatabase,

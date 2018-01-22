@@ -24,16 +24,19 @@ import { ApiconnectionService } from '../../service/apiconnection.service';
   ],
 })
 export class DashboardComponent implements OnInit {
-  searchData= [];
-  datacopy= [];
+  showSuggestion: boolean;
+  searchData = [];
+  datacopy = [];
   mySubscription: any;
   data = [];
   state: String;
   resultdata: any;
+  showLoader: boolean;
 
   constructor(private api: ApiconnectionService) { }
 
   ngOnInit() {
+    this.showLoader = true;
     this.state = 'state1';
     this.mydata();
   }
@@ -42,17 +45,21 @@ export class DashboardComponent implements OnInit {
     * Fetching API DATA from GamesArena
     */
   public mydata() {
-    this.mySubscription = this.api.getData('').subscribe(result => {
-      this.resultdata = result;
-      for (let index = 0; index < result.length; index++) {
-        if (index > 0) {
-          this.data.push(result[index]);
-          this.datacopy.push(result[index]);
+    setTimeout(() => {
+      this.mySubscription = this.api.getData('').subscribe(result => {
+
+        this.resultdata = result;
+        for (let index = 0; index < result.length; index++) {
+          if (index > 0) {
+            this.data.push(result[index]);
+            this.datacopy.push(result[index]);
+          }
         }
-      }
-      // this.data = result;
-      // console.log(result);
-    });
+        // this.data = result;
+        // console.log(result);
+      });
+      this.showLoader = false;
+    }, 3000);
   }
 
   mySearch(search1, propert) {
@@ -79,7 +86,7 @@ export class DashboardComponent implements OnInit {
           this.searchData.push(str);
         }
       }
-      if ( this.searchData.length > 5 ) {
+      if (this.searchData.length > 5) {
         break;
       }
     }
@@ -91,13 +98,13 @@ export class DashboardComponent implements OnInit {
     let temp = [];
     for (let index = 0; index < copyd.length; index++) {
       for (let index2 = index; index2 < copyd.length; index2++) {
-        if (copyd[index].score !== undefined && copyd[index2].score !== undefined ) {
-            if ( copyd[index2].score > copyd[index].score ) {
-              temp = copyd[index];
-              copyd[index] = copyd[index2];
-              copyd[index2] = temp;
-            }
+        if (copyd[index].score !== undefined && copyd[index2].score !== undefined) {
+          if (copyd[index2].score > copyd[index].score) {
+            temp = copyd[index];
+            copyd[index] = copyd[index2];
+            copyd[index2] = temp;
           }
+        }
       }
     }
     this.data = copyd;
@@ -112,10 +119,10 @@ export class DashboardComponent implements OnInit {
       this.data = this.datacopy;
     } else {
       for (let index = 0; index < this.resultdata.length; index++) {
-        if ( propert === 'editors_choice') {
-           str = this.resultdata[index].editors_choice;
+        if (propert === 'editors_choice') {
+          str = this.resultdata[index].editors_choice;
         } else if (propert === 'genre') {
-           str = this.resultdata[index].genre;
+          str = this.resultdata[index].genre;
         } else if (propert === 'score') {
           str = this.resultdata[index].score;
         } else if (propert === 'platform') {
@@ -131,26 +138,34 @@ export class DashboardComponent implements OnInit {
           if (x >= 0) {
             // this.data[index] = result[index];
             this.data.push(this.resultdata[index]);
-            if ( this.searchData.length < 10 ) {
-                this.searchData.push(str);
-              }
+            if (this.searchData.length < 10 && this.showSuggestion === true) {
+              this.searchData.push(str);
+            }
           }
         }
 
       }
+      this.showSuggestion = true;
     }
   }
 
-  mydataSelect(form1, j) {
-    // form1.value.search = this.searchData[j];
-    const i = document.getElementById('search');
-    i.setAttribute('value', this.searchData[j]);
-    console.log(this.searchData[j]);
+  mydataSelect(searchbox, opt, j) {
+    this.showSuggestion = false;
+    searchbox.value = this.searchData[j];
+    this.searchData = [];
+    this.getfiltered(searchbox.value, opt.value);
   }
+
+
   submitform(myform) {
     const s = myform.value.search;
     const k = myform.value.opt;
     this.getfiltered(s, k);
+  }
+
+  hidesuggestion() {
+    this.showSuggestion = false;
+    this.searchData = [];
   }
 
   // tslint:disable-next-line:use-life-cycle-interface

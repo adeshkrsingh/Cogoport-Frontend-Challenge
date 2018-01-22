@@ -50,7 +50,10 @@ export class ApiconnectionService {
     //   })
     // });
 
-    this.url = this.apiurl + requesturl;
+    // this.http.get('../../../assets/mydata.json').map(res => res.json()).retry(10);
+
+    // this.url = this.apiurl + requesturl;
+    this.url = '../../../assets/mydata.json';
     return this.http.get(this.url)
       .map((res) => res.json())
       .retry(10);

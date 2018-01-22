@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { SharedRoutingModule } from './shared-routing.module';
 import { LoaderComponent } from './loader/loader.component';
-import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+
 import { UnabletoloadComponent } from './unabletoload/unabletoload.component';
 
 @NgModule({
@@ -11,7 +11,7 @@ import { UnabletoloadComponent } from './unabletoload/unabletoload.component';
     CommonModule,
     SharedRoutingModule,
   ],
-  declarations: [LoaderComponent, PagenotfoundComponent, UnabletoloadComponent],
-  exports: [LoaderComponent, PagenotfoundComponent, UnabletoloadComponent]
+  declarations: [LoaderComponent, UnabletoloadComponent],
+  exports: [LoaderComponent, UnabletoloadComponent]
 })
 export class SharedModule { }
